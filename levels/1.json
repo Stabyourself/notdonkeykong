@@ -1,0 +1,256 @@
+{
+    "mario": {
+        "position": [64, 203]
+    },
+
+    "donkeyKong": {
+        "position": [32, 24]
+    },
+
+    "girders": [
+        [
+            {
+                "collidesWithBarrels": false,
+                "vertices": [
+                    [80,40],
+                    [104,40],
+                    [104,48],
+                    [80,48]
+                ]
+            }
+        ],
+
+        [
+            {
+                "collidesWithBarrels": false,
+                "vertices": [
+                    [104, 32],
+                    [152, 32],
+                    [152, 40],
+                    [104, 40]
+                ]
+            }
+        ],
+
+        [
+            {
+                "dirChange": "left",
+                "vertices": [
+                    [8, 208],
+                    [116, 208],
+                    [116, 216],
+                    [8, 216]
+                ]
+            },
+            
+            {
+                "dirChange": "left",
+                "vertices": [
+                    [116, 208],
+                    [116, 216],
+                    [248, 202.5],
+                    [248, 210.5]
+                ]
+            }
+        ],
+
+        [
+            {
+                "dirChange": "right",
+                "vertices": [
+                    [16, 172],
+                    [224, 180.5],
+                    [224, 188.5],
+                    [16, 180]
+                ]
+            }
+        ],
+
+        [
+            {
+                "dirChange": "left",
+                "vertices": [
+                    [32, 150.5],
+                    [240, 142],
+                    [240, 150],
+                    [32, 158.5]
+                ]
+            }
+        ],
+
+        [
+            {
+                "dirChange": "right",
+                "vertices": [
+                    [16, 112],
+                    [224, 120.5],
+                    [224, 128.5],
+                    [16, 120]
+                ]
+            }
+        ],
+
+        [
+            {
+                "dirChange": "left",
+                "vertices": [
+                    [32, 90.5],
+                    [240, 82],
+                    [240, 90],
+                    [32, 98.5]
+                ]
+            }
+        ],
+
+        [
+            {
+                "vertices": [
+                    [16, 56],
+                    [116, 56],
+                    [116, 64],
+                    [16, 64]
+                ]
+            },
+
+            {
+                "vertices": [
+                    [116, 56],
+                    [224, 60.5],
+                    [224, 68.5],
+                    [116, 64]
+                ]
+            }
+        ]
+    ],
+    
+    "ladders": [
+        {
+            "x": 96,
+            "y": 200,
+            "height": 8,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 200,
+            "y": 188,
+            "height": 16,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 112,
+            "y": 155,
+            "height": 21,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 96,
+            "y": 183,
+            "height": 9,
+            "connectsTop": true
+        },
+        
+        {
+            "x": 48,
+            "y": 158,
+            "height": 15,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 80,
+            "y": 136,
+            "height": 12,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 128,
+            "y": 125,
+            "height": 21,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 200,
+            "y": 128,
+            "height": 15,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 184,
+            "y": 112,
+            "height": 7,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 88,
+            "y": 96,
+            "height": 19,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 80,
+            "y": 123,
+            "height": 5,
+            "connectsTop": true
+        },
+        
+        {
+            "x": 48,
+            "y": 98,
+            "height": 15,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 104,
+            "y": 80,
+            "height": 7,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 184,
+            "y": 92,
+            "height": 4,
+            "connectsTop": true
+        },
+        
+        {
+            "x": 200,
+            "y": 68,
+            "height": 15,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 144,
+            "y": 40,
+            "height": 17,
+            "connectsTop": true,
+            "connectsBottom": true
+        },
+        
+        {
+            "x": 104,
+            "y": 64,
+            "height": 8,
+            "connectsTop": true
+        }
+        
+    ]
+}
