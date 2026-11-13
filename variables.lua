@@ -12,7 +12,7 @@ FULLSCREEN = false
 SCALE = 3
 ZOOM = 1
 MSAA = 0
-VSYNC = false
+VSYNC = 1
 DEBUGDRAW = false
 MARIODEBUG = false
 
@@ -31,6 +31,8 @@ FFKEYS = {
         val=0.1
     }
 }
+
+PHYSICS_STEP = 1/500
 
 WORLD_METER = 1
 WORLD_METER_FACTOR = 30/WORLD_METER

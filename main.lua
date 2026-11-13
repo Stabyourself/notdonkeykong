@@ -3,6 +3,14 @@ require "loop"
 function love.load()
     require "variables"
 
+    isWeb = love.system.getOS() == "Web"
+    if isWeb then
+        -- no quitting in browsers
+        love.event.quit = function() end
+    end
+
+    physicsAccumulator = 0
+
     love.graphics.setDefaultFilter("nearest", "nearest")
     love.physics.setMeter(WORLD_METER)
 
@@ -78,6 +86,13 @@ function love.load()
     mainCamera = camera.new(WIDTH*.5, HEIGHT*.5)
     mainCamera:zoomTo(SCALE*ZOOM)
 
+    setupJoyController()
+
+    game.load("1")
+    love.graphics.setFont(love.graphics.newFont(14))
+end
+
+function setupJoyController()
     myJoyController = JoyController:new(1)
 
     if myJoyController.initialized then
@@ -117,9 +132,13 @@ function love.load()
             end
         end)
     end
-    
-    game.load("1")
-    love.graphics.setFont(love.graphics.newFont(14))
+end
+
+function love.joystickadded(joystick)
+    -- browsers only report gamepads after a button press
+    if not myJoyController.initialized then
+        setupJoyController()
+    end
 end
 
 function love.update(dt)
@@ -135,10 +154,18 @@ function love.update(dt)
 	end
 
     if gameState == "game" then
-        game.update(dt)
+        -- fixed timestep, box2d gets weird at different framerates
+        physicsAccumulator = physicsAccumulator + dt
+
+        while physicsAccumulator >= PHYSICS_STEP do
+            physicsAccumulator = physicsAccumulator - PHYSICS_STEP
+            game.update(PHYSICS_STEP)
+        end
     end
 
-    love.window.setTitle("Wonkey Kong (FPS: " .. love.timer.getFPS() .. ")")
+    if not isWeb then
+        love.window.setTitle("Wonkey Kong (FPS: " .. love.timer.getFPS() .. ")")
+    end
 end
 
 function love.draw()
