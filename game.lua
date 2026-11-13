@@ -100,7 +100,7 @@ function game.draw()
     end
 
     if DEBUGDRAW then
-        for _, body in ipairs(game.level.world:getBodyList()) do
+        for _, body in ipairs(game.level.world:getBodies()) do
             bodyDebug(body)
         end
         
