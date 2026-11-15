@@ -177,7 +177,8 @@ function love.draw()
     mainCamera:detach()
 end
 
-function love.keypressed(key)
+function love.keypressed(key, scancode)
+    key = scancode
     if key == KEY_EXIT then
         love.event.quit()
     end
@@ -321,7 +322,7 @@ function fixtureRemoveMask(fixture, category)
 end
 
 function keyUp()
-    if love.keyboard.isDown(KEY_UP) then
+    if love.keyboard.isScancodeDown(KEY_UP) then
         return true
     end
 
@@ -343,7 +344,7 @@ function keyUp()
 end
 
 function keyDown()
-    if love.keyboard.isDown(KEY_DOWN) then
+    if love.keyboard.isScancodeDown(KEY_DOWN) then
         return true
     end
 
@@ -365,7 +366,7 @@ function keyDown()
 end
 
 function keyLeft()
-    if love.keyboard.isDown(KEY_LEFT) then
+    if love.keyboard.isScancodeDown(KEY_LEFT) then
         return true
     end
 
@@ -387,7 +388,7 @@ function keyLeft()
 end
 
 function keyRight()
-    if love.keyboard.isDown(KEY_RIGHT) then
+    if love.keyboard.isScancodeDown(KEY_RIGHT) then
         return true
     end
 
