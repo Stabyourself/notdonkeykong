@@ -14,6 +14,10 @@ function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
     love.physics.setMeter(WORLD_METER)
 
+    if isWeb then
+        SCALE = webscale()
+    end
+
     if FULLSCREEN then
         love.window.setMode(1680, 1050, {msaa = MSAA, vsync = VSYNC, fullscreen = true})
     else
@@ -165,6 +169,35 @@ function love.update(dt)
 
     if not isWeb then
         love.window.setTitle("Wonkey Kong (FPS: " .. love.timer.getFPS() .. ")")
+    else
+        updatewebscale(dt)
+    end
+end
+
+--web: biggest whole scale that fits the browser window, the page stretches the rest
+function webscale()
+    local size = love.js and love.js.eval and
+        love.js.eval("Math.floor(innerWidth*devicePixelRatio)+' '+Math.floor(innerHeight*devicePixelRatio)")
+    local w, h = string.match(size or "", "(%d+) (%d+)")
+    if not w then
+        return SCALE
+    end
+    return math.max(1, math.min(math.floor(tonumber(w)/WIDTH), math.floor(tonumber(h)/HEIGHT)))
+end
+
+local webscaletimer = 0
+function updatewebscale(dt)
+    webscaletimer = webscaletimer + dt
+    if webscaletimer < 0.5 then
+        return
+    end
+    webscaletimer = 0
+    local s = webscale()
+    if s ~= SCALE then
+        SCALE = s
+        love.window.setMode(WIDTH*SCALE, HEIGHT*SCALE, {msaa = MSAA, vsync = VSYNC})
+        love.graphics.setLineWidth(1/SCALE)
+        mainCamera:zoomTo(SCALE*ZOOM)
     end
 end
 
